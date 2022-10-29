@@ -1,6 +1,7 @@
-// Assignment Code
+// button
 var generateBtn = document.querySelector("#generate");
 
+//functions for random char selection
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
@@ -8,10 +9,10 @@ function randomInt(min, max) {
 function getRandomItem(typesCount) {
   return typesCount[randomInt(0,typesCount.length -1)]
 }
-
+// function to generate password by adding options and generating random chars then printing
 function generatePassword() {
 
-  var userInput = window.prompt("Input Password Length.")
+  var userInput = window.prompt("Input Password Length of 8-128.")
 
   var passwordLength = parseInt(userInput)
 
@@ -26,7 +27,7 @@ function generatePassword() {
   }
   
   var userNumbersConfirm = window.confirm("Should your password include numbers?")
-  var userUppersConfirm = window.confirm("Should your password include uppercase etters?")
+  var userUppersConfirm = window.confirm("Should your password include uppercase letters?")
   var userLowersConfirm = window.confirm("Should your password include lowercase letters?")
   var userSymbolsConfirm = window.confirm("Should your password include symbols?")
 
@@ -37,21 +38,26 @@ function generatePassword() {
 
   var typesCount = new Array()
 
-  if (userNumbersConfirm == true) {
+  if (userNumbersConfirm) {
     typesCount = typesCount.concat(numberList)
   }
 
-  if (userUppersConfirm == true) {
+  if (userUppersConfirm ) {
     typesCount = typesCount.concat(uppercaseList)
   }
 
-  if (userLowersConfirm == true) {
+  if (userLowersConfirm) {
     typesCount = typesCount.concat(lowercaseList)
   }
 
-  if (userSymbolsConfirm == true) {
+  if (userSymbolsConfirm) {
     typesCount = typesCount.concat(symbolList)
-    console.log(symbolList)
+  }
+ 
+  if (typesCount == 0) {
+    window.alert("Sir, this is a Wendy's...");
+    passwordText.value =""
+    return;
   }
 
   var generatedPassword = ""
@@ -60,7 +66,7 @@ function generatePassword() {
       generatedPassword += getRandomItem(typesCount)
      }
      
-     return generatedPassword
+  return generatedPassword
 }
 
 // Write password to the #password input
