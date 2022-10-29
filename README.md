@@ -12,9 +12,9 @@ If your README is long, add a table of contents to make it easy for users to fin
 ## Screenshot
 
  ![Password-Generator](/assets/password-generator-ss.png)
- 
+
 ## Link
-https://dfletch12.github.io/My-Portfolio-2022//
+https://dfletch12.github.io/Password-Generator/
 
 
 ## License
